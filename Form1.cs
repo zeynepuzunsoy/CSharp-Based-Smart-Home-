@@ -33,8 +33,8 @@ namespace SmartHome
 
         IFirebaseConfig config = new FirebaseConfig()
         {
-            AuthSecret = "9HUlWHFEO1ptX3IuUoVFGgGKrZ08glr5x2iFt73L",
-            BasePath = "https://smarthomedeneme3-default-rtdb.firebaseio.com/"
+            AuthSecret = "***",
+            BasePath = "***"
         };
         IFirebaseClient client;
 
@@ -81,7 +81,7 @@ namespace SmartHome
         {
             client = new FireSharp.FirebaseClient(config);
             if (client == null)
-                MessageBox.Show("Bağlantı hatasi.");
+                MessageBox.Show("BaÃ°lantÃ½ hatasi.");
 
 
             
@@ -91,7 +91,7 @@ namespace SmartHome
 
 
             //  Application.Idle += new EventHandler(rfid2);
-          //  Application.Idle += new EventHandler(hareketalgılayıcı);
+          //  Application.Idle += new EventHandler(hareketalgÃ½layÃ½cÃ½);
             
 
            //  Thread hrkt = new Thread(rfid2);
@@ -106,7 +106,7 @@ namespace SmartHome
 
 
         /*
-        private async void hareketAlgılaycı(object sender, EventArgs e)
+        private async void hareketAlgÃ½laycÃ½(object sender, EventArgs e)
         {
             string hareket_control = " ";
             FirebaseResponse response = await client.GetAsync("");
@@ -115,12 +115,12 @@ namespace SmartHome
             while (result.Current_State == "1")
             {
                 DialogResult result2;
-                result2 = MessageBox.Show("Beklenmeyen bir hareket algılandı! Fotoğraf çekilsin mi ?", "Tehlike", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                result2 = MessageBox.Show("Beklenmeyen bir hareket algÃ½landÃ½! FotoÃ°raf Ã§ekilsin mi ?", "Tehlike", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result2 == DialogResult.Yes && hareket_control != "1")
                 {
                     hareket_control = result.Current_State;
                     DialogResult rslt;
-                    rslt = MessageBox.Show("Fotoğraf e-mail ile bildirilsin mi?", "Bildiri", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+                    rslt = MessageBox.Show("FotoÃ°raf e-mail ile bildirilsin mi?", "Bildiri", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
                     if (rslt == DialogResult.Yes)
                     {
                         Data data = new Data()
@@ -145,19 +145,19 @@ namespace SmartHome
           
 
             MailMessage mymessage = new MailMessage();
-            SmtpClient smtp = new SmtpClient(); //istemci oluşturuldu
+            SmtpClient smtp = new SmtpClient(); //istemci oluÃ¾turuldu
 
 
 
 
             smtp.Credentials = new System.Net.NetworkCredential("zeynepuzunsoyxzu@gmail.com", "chdsksqfmxfhyfsm");
             smtp.Port = 587;  //465 dene
-            smtp.Host = "smtp.gmail.com";    //host sunucu olarak düşünülebilir. hotmailin sunucu ağını (live) kullandık.  
-            smtp.EnableSsl = true;  //sunucu ile istemci arasındaki verileri doğru adrese gönderene kadar şifreleme yapar
+            smtp.Host = "smtp.gmail.com";    //host sunucu olarak dÃ¼Ã¾Ã¼nÃ¼lebilir. hotmailin sunucu aÃ°Ã½nÃ½ (live) kullandÃ½k.  
+            smtp.EnableSsl = true;  //sunucu ile istemci arasÃ½ndaki verileri doÃ°ru adrese gÃ¶nderene kadar Ã¾ifreleme yapar
                                     // smtp.UseDefaultCredentials = true;
-            mymessage.To.Add(textBox1.Text);  //mesajımı bunu ekleme anlamı taşır.
+            mymessage.To.Add(textBox1.Text);  //mesajÃ½mÃ½ bunu ekleme anlamÃ½ taÃ¾Ã½r.
             mymessage.From = new MailAddress("zeynepuzunsoyxzu@gmail.com");
-            mymessage.Subject = "Güvenlik Uyarısı";
+            mymessage.Subject = "GÃ¼venlik UyarÃ½sÃ½";
             mymessage.Body = "HIRSIZ VAR " + Process.Start(result.picture_url);
 
             
@@ -197,7 +197,7 @@ namespace SmartHome
                 State = "Open"
             };
             var setter = client.Update("Door/" + "/", data);
-           // textBox3.Text = "Kapı açıldı.";
+           // textBox3.Text = "KapÃ½ aÃ§Ã½ldÃ½.";
            
         }
 
@@ -280,7 +280,7 @@ namespace SmartHome
         {
             client = new FireSharp.FirebaseClient(config);
             if (client == null)
-                MessageBox.Show("Bağlantı hatasi.");
+                MessageBox.Show("BaÃ°lantÃ½ hatasi.");
 
             FirebaseResponse rsp = await client.GetAsync("");
             Data result = rsp.ResultAs<Data>();
@@ -320,7 +320,7 @@ namespace SmartHome
                 State = "Close"
             };
             var setter = client.Update("Door/" + "/", data);
-           // textBox3.Text = "Kapı kapandı.";
+           // textBox3.Text = "KapÃ½ kapandÃ½.";
            
 
 
@@ -384,7 +384,7 @@ namespace SmartHome
             Thread.Sleep(4000);
 
             DialogResult rslt;
-            rslt = MessageBox.Show("Fotoğraf e-mail ile bildirilsin mi?", "Bildiri", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            rslt = MessageBox.Show("FotoÃ°raf e-mail ile bildirilsin mi?", "Bildiri", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (rslt == DialogResult.Yes)
             {
                 FirebaseResponse img = await client.GetAsync("");
@@ -392,16 +392,16 @@ namespace SmartHome
 
 
                 MailMessage mymessage = new MailMessage();
-                SmtpClient smtp = new SmtpClient(); //istemci oluşturuldu
+                SmtpClient smtp = new SmtpClient(); //istemci oluÃ¾turuldu
 
                 smtp.Credentials = new System.Net.NetworkCredential("zeynepuzunsoyxzu@gmail.com", "chdsksqfmxfhyfsm");
                 smtp.Port = 587;  //465 dene
-                smtp.Host = "smtp.gmail.com";    //host sunucu olarak düşünülebilir. hotmailin sunucu ağını (live) kullandık.  
-                smtp.EnableSsl = true;  //sunucu ile istemci arasındaki verileri doğru adrese gönderene kadar şifreleme yapar
+                smtp.Host = "smtp.gmail.com";    //host sunucu olarak dÃ¼Ã¾Ã¼nÃ¼lebilir. hotmailin sunucu aÃ°Ã½nÃ½ (live) kullandÃ½k.  
+                smtp.EnableSsl = true;  //sunucu ile istemci arasÃ½ndaki verileri doÃ°ru adrese gÃ¶nderene kadar Ã¾ifreleme yapar
                                         // smtp.UseDefaultCredentials = true;
-                mymessage.To.Add("zeynepuzunsoyy@gmail.com");  //mesajımı bunu ekleme anlamı taşır.
+                mymessage.To.Add("zeynepuzunsoyy@gmail.com");  //mesajÃ½mÃ½ bunu ekleme anlamÃ½ taÃ¾Ã½r.
                 mymessage.From = new MailAddress("zeynepuzunsoyxzu@gmail.com");
-                mymessage.Subject = "Güvenlik Uyarısı";
+                mymessage.Subject = "GÃ¼venlik UyarÃ½sÃ½";
                 mymessage.Body = "HIRSIZ VAR " + result.picture_url;
 
                 smtp.Send(mymessage);
@@ -472,20 +472,20 @@ namespace SmartHome
             {
                 if (result.RFID_Control == "zuzu")
                 {
-                    textBox3.Text = "Zeynep Uzunsoy kullanıcısı giriş yapmak istiyor..";
+                    textBox3.Text = "Zeynep Uzunsoy kullanÃ½cÃ½sÃ½ giriÃ¾ yapmak istiyor..";
 
                 }
                 else if (result.RFID_Control == "elif")
                 {
-                    textBox3.Text = "Elif Ay kullanıcısı giriş yapmak istiyor..";
+                    textBox3.Text = "Elif Ay kullanÃ½cÃ½sÃ½ giriÃ¾ yapmak istiyor..";
                 }
                 else if (result.RFID_Control == "ali")
                 {
-                    textBox3.Text = "Ali Deniz kullanısıcı giriş yapmak istiyor..";
+                    textBox3.Text = "Ali Deniz kullanÃ½sÃ½cÃ½ giriÃ¾ yapmak istiyor..";
                 }
                 else if (result.RFID_Control != null)
                 {
-                    textBox3.Text = "Kayıtlı olmayan biri giriş yapmak istiyor..";
+                    textBox3.Text = "KayÃ½tlÃ½ olmayan biri giriÃ¾ yapmak istiyor..";
                 }
                 else
                 {
@@ -502,20 +502,20 @@ namespace SmartHome
             Data result = rp.ResultAs<Data>();
             if (result.RFID_Control == "zuzu")
             {
-                textBox3.Text = "Zeynep Uzunsoy kullanıcısı giriş yapmak istiyor..";
+                textBox3.Text = "Zeynep Uzunsoy kullanÃ½cÃ½sÃ½ giriÃ¾ yapmak istiyor..";
 
             }
             else if (result.RFID_Control == "elif")
             {
-                textBox3.Text = "Elif Ay kullanıcısı giriş yapmak istiyor..";
+                textBox3.Text = "Elif Ay kullanÃ½cÃ½sÃ½ giriÃ¾ yapmak istiyor..";
             }
             else if (result.RFID_Control == "ali")
             {
-                textBox3.Text = "Ali Deniz kullanısıcı giriş yapmak istiyor..";
+                textBox3.Text = "Ali Deniz kullanÃ½sÃ½cÃ½ giriÃ¾ yapmak istiyor..";
             }
             else if (result.RFID_Control != null)
             {
-                textBox3.Text = "Kayıtlı olmayan biri giriş yapmak istiyor..";
+                textBox3.Text = "KayÃ½tlÃ½ olmayan biri giriÃ¾ yapmak istiyor..";
             }
             else
             {
@@ -532,18 +532,18 @@ namespace SmartHome
             Data result = response.ResultAs<Data>();
             if (result.Current_State == "1")
             {
-              //  textBox4.Text = "Hareket algılandı!!";
+              //  textBox4.Text = "Hareket algÃ½landÃ½!!";
             }
 
         }
 
-        public async void hareketalgılayıcı(object sender, EventArgs e)
+        public async void hareketalgÃ½layÃ½cÃ½(object sender, EventArgs e)
         {
             FirebaseResponse response = await client.GetAsync("");
             Data result = response.ResultAs<Data>();
             if (result.Current_State == "1")
             {
-             //   textBox4.Text = "Hareket algılandı!!";
+             //   textBox4.Text = "Hareket algÃ½landÃ½!!";
             }
         }
 
@@ -553,7 +553,7 @@ namespace SmartHome
             Data result = response.ResultAs<Data>();
             if (result.Current_State == "1")
             {
-                textBox4.Text = "Hareket algılandı!!";
+                textBox4.Text = "Hareket algÃ½landÃ½!!";
             }
             else
             {
@@ -567,20 +567,20 @@ namespace SmartHome
             Data result = rp.ResultAs<Data>();
             if (result.RFID_Control == "zuzu")
             {
-                label11.Text = "Zeynep Uzunsoy kullanıcısı giriş yapmak istiyor..";
+                label11.Text = "Zeynep Uzunsoy kullanÃ½cÃ½sÃ½ giriÃ¾ yapmak istiyor..";
 
             }
             else if (result.RFID_Control == "elif")
             {
-                label11.Text = "Elif Ay kullanıcısı giriş yapmak istiyor..";
+                label11.Text = "Elif Ay kullanÃ½cÃ½sÃ½ giriÃ¾ yapmak istiyor..";
             }
             else if (result.RFID_Control == "ali")
             {
-                label11.Text = "Ali Deniz kullanısıcı giriş yapmak istiyor..";
+                label11.Text = "Ali Deniz kullanÃ½sÃ½cÃ½ giriÃ¾ yapmak istiyor..";
             }
             else if (result.RFID_Control != null)
             {
-                label11.Text = "Kayıtlı olmayan biri giriş yapmak istiyor..";
+                label11.Text = "KayÃ½tlÃ½ olmayan biri giriÃ¾ yapmak istiyor..";
             }
             else
             {
@@ -596,20 +596,20 @@ namespace SmartHome
             Data result = rp.ResultAs<Data>();
             if (result.RFID_Control == "zuzu")
             {
-                textBox3.Text = "Zeynep Uzunsoy kullanıcısı giriş yapmak istiyor..";
+                textBox3.Text = "Zeynep Uzunsoy kullanÃ½cÃ½sÃ½ giriÃ¾ yapmak istiyor..";
 
             }
             else if (result.RFID_Control == "elif")
             {
-                textBox3.Text = "Elif Ay kullanıcısı giriş yapmak istiyor..";
+                textBox3.Text = "Elif Ay kullanÃ½cÃ½sÃ½ giriÃ¾ yapmak istiyor..";
             }
             else if (result.RFID_Control == "ali")
             {
-                textBox3.Text = "Ali Deniz kullanısıcı giriş yapmak istiyor..";
+                textBox3.Text = "Ali Deniz kullanÃ½sÃ½cÃ½ giriÃ¾ yapmak istiyor..";
             }
             else if (result.RFID_Control != null)
             {
-                textBox3.Text = "Kayıtlı olmayan biri giriş yapmak istiyor..";
+                textBox3.Text = "KayÃ½tlÃ½ olmayan biri giriÃ¾ yapmak istiyor..";
             }
             else
             {
